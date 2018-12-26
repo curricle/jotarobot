@@ -20,7 +20,6 @@ TO DO:
 require('dotenv').config({ debug: process.env.DEBUG }).load();
 
 const {Client, Attachment, RichEmbed} = require('discord.js');
-var auth = require('./auth.json');
 
 //to access local files
 const fs = require('fs');
