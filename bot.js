@@ -16,7 +16,7 @@ TO DO:
     
 */
 
-//require .env for the secrets and keyss
+//require .env for the secrets and keys
 require('dotenv').config({ debug: process.env.DEBUG }).load();
 
 const {Client, Attachment, RichEmbed} = require('discord.js');
