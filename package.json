@@ -1,12 +1,23 @@
 {
   "name": "jotaro-bot",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "yare yare daze",
   "main": "bot.js",
   "repository": "",
   "author": "justicecaballer.tumblr.com",
   "dependencies": {
-    "discord.io": "^2.5.3",
-    "dotenv": "^6.2.0"
+    "axios": "^0.18.0",
+    "better-sqlite-pool": "^0.2.2",
+    "dbl-api": "^1.2.1",
+    "dblapi.js": "^2.3.0",
+    "discord.js": "^11.4.2",
+    "dotenv": "^6.2.0",
+    "enmap": "^4.6.5",
+    "eris": "^0.9.0",
+    "forever": "^0.15.3",
+    "twitter": "^1.7.1"
+  },
+  "scripts": {
+    "start": "node bot.js"
   }
 }
