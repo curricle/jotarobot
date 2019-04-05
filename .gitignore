@@ -1,5 +1,6 @@
-# Config data
+# JSON files
 config.json
+package-lock.json
 
 # Logs
 logs
