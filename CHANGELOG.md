@@ -9,6 +9,11 @@ For any questions or to get in contact, message me at
 
 LOG
 ---
+[v 0.0.5]
+DBL support
+
+- Added server count to [Discord Bots listing](https://discordbots.org/bot/521800145894113311)
+
 
 [v 0.0.4]
 More selfies

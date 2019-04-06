@@ -33,9 +33,31 @@ const client = new Discord.Client();
 client.config = config;
 client.info = info;
 
+
+
+
+/* -------- begin info for discordbots listing -------- */
+
 //for discordbots stats
 const DBL = require('dblapi.js');
 const dbl = new DBL(config.DBL_TOKEN, client);
+
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+})
+
+dbl.on('error', e => {
+ console.log(`Oops! ${e}`);
+})
+
+/* -------- end info for discordbots listing -------- */
+
+
+
+
+
+
+/* -------- begin functions -------- */
 
 //gets a random number 
 client.getRandom = (len) => {
@@ -47,6 +69,12 @@ client.convertColor = (rrggbb) => {
     var newColor = rrggbb.substr(1);
     return parseInt(newColor, 16);
     };
+
+/* -------- end functions -------- */
+
+
+
+
 
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
@@ -90,6 +118,9 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
+
+/* -------- begin Turning The Bot On -------- */
+
 //r u ready kids
 client.on('ready', function (evt) {
     client.user.setPresence({
@@ -106,3 +137,5 @@ client.on('error', console.error);
 
 //logged tf in
 client.login(config.BOT_LOGIN);
+
+/* -------- end Turning The Bot On -------- */
