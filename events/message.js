@@ -45,8 +45,6 @@ module.exports = (client, message) => {
     
     //if the command doesn't exist, return
     if(!cmd) {
-        console.log("Command does not exist");
-        console.log(msg);
         return;
     }
     
