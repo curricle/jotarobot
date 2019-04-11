@@ -9,6 +9,10 @@ For any questions or to get in contact, message me at
 
 LOG
 ---
+
+[v 0.0.6]
+Error handling
+
 [v 0.0.5]
 DBL support
 

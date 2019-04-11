@@ -75,7 +75,8 @@ exports.run = (client, message, args) => {
                     value: "has:media",
                        count: 3200
                 };
-                        
+                 
+                try {
                 twitterClient.get("statuses/user_timeline", params, function(error, tweets, response) {
                     console.log(tweets.length);
                     if(!error) {
@@ -100,9 +101,12 @@ exports.run = (client, message, args) => {
                         else  {
                             message.channel.send("Sorry, something went wrong. Try again.");
                             console.log("tweet does not have media");
+                            throw error;
                             }
                         }
-                    });
+                    }); }
+                    catch(error) { console.error };
+
                 break;
                 
             case 3:
