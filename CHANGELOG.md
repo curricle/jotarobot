@@ -13,6 +13,10 @@ LOG
 [v 0.0.6]
 Error handling
 
+- Added error handling to twitter selfies
+- Added GitHub link to info
+- Removed unnecessary invalid command logging
+
 [v 0.0.5]
 DBL support
 
