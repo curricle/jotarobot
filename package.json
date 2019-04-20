@@ -1,9 +1,9 @@
 {
   "name": "jotaro-bot",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "yare yare daze",
   "main": "bot.js",
-  "repository": "",
+  "repository": "https://github.com/curricle/jotarobot",
   "author": "justicecaballer.tumblr.com",
   "dependencies": {
     "axios": "^0.18.0",

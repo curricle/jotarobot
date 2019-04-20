@@ -1,4 +1,5 @@
 # jotarobot
+
 a simple Jotaro Kujo-themed bot for Discord
 
 JotaroBot reacts to instances of his name, catchphrase, and thank yous. He can also display ocean-related and marine life photography. More features to come!

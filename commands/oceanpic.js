@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
                             url: img.urls.raw
                                 },
                         color: client.convertColor(img.color),
-                        title: img.description,
+                        title: client.trunc(img.description),
                         description: "By " + img.user.name + " on Unsplash: " + (img.user.links.html + "?utm_source=jotarobot&utm_medium=referral")
                             }
                         });

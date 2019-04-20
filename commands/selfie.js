@@ -160,7 +160,7 @@ exports.run = (client, message, args) => {
                                            url: selfie.content.src
                                        },
                                         color: client.convertColor(client.config.default_color),
-                                        title: selfie.title,
+                                        title: client.trunc(selfie.title),
                                         description: "By " + selfie.author.username + " on deviantART: " + selfie.url
                                    } 
                                 });
