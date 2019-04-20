@@ -71,14 +71,12 @@ client.convertColor = (rrggbb) => {
   };
 
 //to truncate strings to stay within the 250 character embed limit
-client.trunc = (str, len, end) => {
-  if(len == null) {
-    len == 250;
-  }
-  if(end == null) {
-    end == "...";
-  }
-  if(str.length > len) {
+client.trunc = (str) => {
+  
+  const len = 250;
+  const end = "...";
+  
+  if(str != null && str.length > len) {
     return(str.substring(0,len - end.length) + end);
   }
   else {
