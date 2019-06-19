@@ -60,9 +60,12 @@ dbl.on('error', e => {
 /* -------- begin functions -------- */
 
 //gets a random number 
-client.getRandom = (len) => {
-    return Math.floor(Math.random()*len);
-};   
+client.getRandom = (len, rangeFloor) => {
+  if(rangeFloor) {
+    return Math.floor(Math.random()*(len-rangeFloor)+rangeFloor);
+  }
+  else return Math.floor(Math.random()*len);
+};     
 
 //to convert hex colors to int
 client.convertColor = (rrggbb) => {

@@ -1,6 +1,6 @@
 {
   "name": "jotaro-bot",
-  "version": "0.0.7",
+  "version": "2.3.0",
   "description": "yare yare daze",
   "main": "bot.js",
   "repository": "https://github.com/curricle/jotarobot",
@@ -20,5 +20,8 @@
   },
   "scripts": {
     "start": "node bot.js"
+  },
+  "devDependencies": {
+    "url-loader": "^1.1.2"
   }
 }

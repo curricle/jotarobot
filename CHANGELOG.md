@@ -10,31 +10,36 @@ For any questions or to get in contact, message me at
 LOG
 ---
 
-[v 0.0.7]
+[v 2.3.0]
+The World
+
+- Added a command that counts down seconds to simulate stopped time
+
+[v 2.2.2]
 Cleanup
 
 - Added a function to truncate strings
 - Used the above function to limit the length of image descriptions as embed titles to stay within Discord's 250 character limit
 
-[v 0.0.6]
+[v 2.2.1]
 Error handling
 
 - Added error handling to twitter selfies
 - Added GitHub link to info
 - Removed unnecessary invalid command logging
 
-[v 0.0.5]
+[v 2.2.0]
 DBL support
 
 - Added server count to [Discord Bots listing](https://discordbots.org/bot/521800145894113311)
 
 
-[v 0.0.4]
+[v 2.1.0]
 More selfies
 
 - JotaroBot can now pull from deviantART for selfies.
 
-[v 0.0.3]
+[v 2.0.0]
 Code overhaul:
 
 - bot.js updated
@@ -42,15 +47,15 @@ Code overhaul:
   - Commands, events folder created with separate js files for handling each command/event
 - Changelog added
 
-[v 0.0.2]
+[v 1.1.1]
 FIXED:
 
 - Bug that made Jotaro spam good morning in certain servers
 
-[v 0.0.1]
+[v 1.1.0]
 
 - Moved from c9.io to AWS hosting
 
-[v 0.0.0]
+[v 1.0.0]
 
 - Init
