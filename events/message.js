@@ -35,19 +35,31 @@ module.exports = (client, message) => {
         message.channel.send(morning[client.getRandom(morning.length)] + " " + reminder[client.getRandom(reminder.length)]);
         }
     
-    //make sure message has prefix
-    if(message.content.indexOf(client.config.prefix) !== 0) return;
+     //make sure message has prefix
+    if(message.content.indexOf(client.config.prefix) !== 0 && !message.isMentioned('521800145894113311') && !message.isMentioned('!521800145894113311')) return;
     
     //get message command
-    const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-    var cmd = client.commands.get(command);
-    
-    //if the command doesn't exist, return
-    if(!cmd) {
-        return;
+    function runCMD(args) {
+        
+        let command = args.shift().toLowerCase();
+        let cmd = client.commands.get(command);
+        
+        if(!cmd) {
+            console.log("Command does not exist");
+            console.log(msg);
+            return;
+        }
+        
+        cmd.run(client, message, args);
     }
     
-    cmd.run(client, message, args);
+    if(message.isMentioned('521800145894113311') || message.isMentioned('521800145894113311')) {
+        let args = message.content.slice(message.content.indexOf(">")+1).trim().split(/ +/g);
+        runCMD(args);
+    }
+    else {
+        let args =  message.content.slice(client.config.prefix.length).trim().split(/ +/g);
+        runCMD(args);
+    }
 
 };

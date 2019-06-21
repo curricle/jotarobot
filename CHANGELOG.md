@@ -10,6 +10,17 @@ For any questions or to get in contact, message me at
 LOG
 ---
 
+[v 2.3.2]
+Up and @'em part 2
+
+- Bot can now respond to commands when mentioned with nicknames
+
+[v 2.3.1]
+Up and @'em
+
+- Bot can now respond to commands when mentioned
+
+
 [v 2.3.0]
 The World
 
