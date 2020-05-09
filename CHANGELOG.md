@@ -10,6 +10,16 @@ For any questions or to get in contact, message me at
 LOG
 ---
 
+[v 3.0.0]
+JOTAROBOT 3: THE SHARDENING
+
+- Bot can now be downloaded to more than 2500 servers
+- Code updates across the board to be compatible with Discord v12
+- Cooldown added to The World
+- Alias for help command ("commands") added
+- Info updated
+- Minor file structure updates
+
 [v 2.3.2]
 Up and @'em part 2
 

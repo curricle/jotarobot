@@ -1,157 +1,114 @@
-/* 
-
-    TO UPDATE:
-    
-    - Make sure node is the latest version
-    - install better-sqlite-pool
-    - install Enmap (npm install enmap@latest)
-    - install devtools (yum install make automake gcc gcc-c++ kernel-devel)
-    
-    ALSO: there doesn't need to be a getRandomByInt AND a getRandom. you moron. just pass the length of the array when -- oh my god. you idiot
-    
-    Updates:
-    - HEXtoVBColor or whatever it's called is now convertColor and it's more accurate
-    - the .env file is the config file now
-    
-    Consult this for embed pagination: https://www.youtube.com/watch?v=GQlBPMW0pZo
-    
-    REMEMBER: all instances of "bot" were changed to "client"
-
-*/
-
-
 const Discord = require('discord.js');
-const Enmap = require('enmap');
-const config = require('./config.json');
-const info = require('./package.json');
+const { prefix, hp_token, DBL_TOKEN, BOT_LOGIN } = require('./config.json');
 const fs = require('fs');
+const responses = require('./responses.js');
 
 
 // Initialize Discord client
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
+client.functions = new Discord.Collection();
+const cooldowns = new Discord.Collection();
+client.responses = new Discord.Collection();
 
-client.config = config;
-client.info = info;
+//get the commands
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+}
 
+console.log(client.commands);
 
+/* --------------- process messages --------------- */
+
+client.on('message', message => {
+
+    //make sure message isn't from a bot
+    if(message.author.bot) return;
+    
+    //check if it's an approved non-prefixed message
+    responses.sendResponse(message);
+
+    //trigger by mention
+    
+    //make sure message has prefix
+    if(message.content.indexOf(prefix) !== 0) return;
+
+    //get the actual command after the prefix and make it lowercase
+    const args = message.content.slice(prefix.length).split(/ +/g);
+    const commandName = args.shift().toLowerCase(); 
+
+    /* --------------- execute the command --------------- */
+
+    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+
+     /* --------------- for cooldowns --------------- */
+
+     if (!cooldowns.has(command.name)) {
+        cooldowns.set(command.name, new Discord.Collection());
+    }
+    
+    const now = Date.now();
+    const timestamps = cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown || 3) * 1000;
+
+    if (timestamps.has(message.author.id)) {
+        const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+    
+        if (now < expirationTime) {
+            const timeLeft = (expirationTime - now) / 1000;
+            return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+        }
+    }
+
+    timestamps.set(message.author.id, now);
+    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+    /* --------------- end cooldowns --------------- */
+
+    console.log(command);
+        try {
+            command.execute(message, args);
+        } catch (error) {
+            console.error(error);
+            message.reply('there was an error trying to execute that command!');
+        }
+
+    /* --------------- end command execution ---------------*/
+
+});
+
+/* --------------- end message processing ---------------*/
 
 
 /* -------- begin info for discordbots listing -------- */
 
-//for discordbots stats
 const DBL = require('dblapi.js');
-const dbl = new DBL(config.DBL_TOKEN, client);
+const dbl = new DBL(DBL_TOKEN, client);
 
 dbl.on('posted', () => {
   console.log('Server count posted!');
-})
+});
 
 dbl.on('error', e => {
  console.log(`Oops! ${e}`);
-})
+});
 
 /* -------- end info for discordbots listing -------- */
 
 
 
-
-
-
-/* -------- begin functions -------- */
-
-//gets a random number 
-client.getRandom = (len, rangeFloor) => {
-  if(rangeFloor) {
-    return Math.floor(Math.random()*(len-rangeFloor)+rangeFloor);
-  }
-  else return Math.floor(Math.random()*len);
-};     
-
-//to convert hex colors to int
-client.convertColor = (rrggbb) => {
-    var newColor = rrggbb.substr(1);
-    return parseInt(newColor, 16);
-  };
-
-//to truncate strings to stay within the 250 character embed limit
-client.trunc = (str) => {
-  
-  const len = 250;
-  const end = "...";
-  
-  if(str != null && str.length > len) {
-    return(str.substring(0,len - end.length) + end);
-  }
-  else {
-    return str;
-  }
-}
-/* -------- end functions -------- */
-
-
-
-
-
-
-// This loop reads the /events/ folder and attaches each event file to the appropriate event.
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    // If the file is not a JS file, ignore it (thanks, Apple)
-    if (!file.endsWith(".js")) return;
-    // Load the event file itself
-    const event = require(`./events/${file}`);
-    // Get just the event name from the file name
-    let eventName = file.split(".")[0];
-    // super-secret recipe to call events with all their proper arguments *after* the `client` var.
-    // without going into too many details, this means each event will be called with the client argument,
-    // followed by its "normal" arguments, like message, member, etc etc.
-    // This line is awesome by the way. Just sayin'.
-    client.on(eventName, event.bind(null, client));
-    delete require.cache[require.resolve(`./events/${file}`)];
-  });
-});
-
-client.settings = new Enmap({
-  name: "settings",
-  fetchAll: false,
-  autoFetch: true,
-  cloneLevel: 'deep'
-});
-client.commands = new Enmap();
-
-fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    // Load the command file itself
-    let props = require(`./commands/${file}`);
-    // Get just the command name from the file name
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-    // Here we simply store the whole thing in the command Enmap. We're not running it right now.
-    client.commands.set(commandName, props);
-  });
-});
-
-
 /* -------- begin Turning The Bot On -------- */
 
-//r u ready kids
-client.on('ready', function (evt) {
-    client.user.setPresence({
-        game: {
-            'name': '?help',
-            'type': 'LISTENING'
-        },
-        status: 'online'
-    });
+client.once('ready', function (evt) {
+    client.user.setActivity(`${prefix}help`, {type: "LISTENING"});
     console.log("I'm ready.");
 });
 
 client.on('error', console.error);
+client.on('unhandledRejection', console.error);
 
-//logged tf in
-client.login(config.BOT_LOGIN);
+client.login(BOT_LOGIN).catch(console.error);
 
 /* -------- end Turning The Bot On -------- */

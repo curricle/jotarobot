@@ -1,0 +1,259 @@
+{
+    "series": [
+            {
+            "title": "Stardust Crusaders",
+            "alt": ["SDC", "SC"],
+            "number": "3",
+            "arc": [
+                {"Jotaro Kujo": [
+                    {
+                        "quote": "So they called in the big guns? Pft! Go home, mom... I'm staying for a while.",
+                        "description": "to Holly and the policemen in jail",
+                        "vol": "1",
+                        "ch": "1",
+                        "part": "1"
+                    },
+                    {
+                        "quote": "I'm being haunted by an evil spirit... and I don't know what he'll make me do. During that fight it took all I had to keep this thing at bay. And that's why you can't let me out of this cage!",
+                        "description": "to Holly and the policemen in jail",
+                        "vol": "1",
+                        "ch": "1",
+                        "part": "1"
+                    }
+                ]}, 
+                {"Dark Blue Moon": [
+                    {
+                        "quote": "Hold it! If you had just said so earlier, I would have put it out myself. Who the hell do you think you are, you bastard?",
+                        "description": "to the ship's captain",
+                        "vol": "2",
+                        "ch": "15",
+                        "part": "2"    
+                    },
+                    {
+                        "quote": "That was a bluff! I seem to have found an idiot.",
+                        "description": "about the Stand user disguied as the ship's captain",
+                        "vol": "2",
+                        "ch": "15",
+                        "part": "2"
+                    },
+                    {
+                        "quote": "Then I'll leave you resting at the bottom of the depths of hell!",
+                        "description": "to Dark Blue Moon's user",
+                        "vol": "2",
+                        "ch": "15",
+                        "part": "2"
+                    },
+                    {
+                        "quote": "You'd take a child hostage to threaten me? Do you really think that's going to intimidate me?",
+                        "description": "to Dark Blue Moon's user",
+                        "vol": "2",
+                        "ch": "15",
+                        "part": "2"
+                    },
+                    {
+                        "quote": "The only one who's getting a swift watery death... is you.",
+                        "description": "to Dark Blue Moon's user",
+                        "vol": "2",
+                        "ch": "15",
+                        "part": "2"
+                    },
+                    {
+                        "quote": "I'm asking you... what kind of seafood do you want to be? Sashimi? Fish fillet? Maybe fish paste? I'll do as you order.",
+                        "description": "to Dark Blue Moon's user",
+                        "vol": "2",
+                        "ch": "16",
+                        "part": "3"
+                    },
+                    {
+                        "quote": "The one who will become sashimi... is you.",
+                        "description": "to Dark Blue Moon's user",
+                        "vol": "2",
+                        "ch": "16",
+                        "part": "3"
+                    },
+                    {
+                        "quote": "I was thinking that since we're underwater, it's gonna get dirty when you piss on yourself while I beat you to death.",
+                        "description": "to Dark Blue Moon's user",
+                        "vol": "2",
+                        "ch": "16",
+                        "part": "3"
+                    }
+                    ]}, 
+                {"Strength": [
+                    {
+                        "quote": "Give me your hand, so you won't fall. ...Yare yare daze.",
+                        "description": "to Anne",
+                        "vol": "2",
+                        "ch": "17",
+                        "part": "1"
+                    },
+                    {
+                        "quote": "Not really a good way to welcome a little girl onto a ship, is it?",
+                        "description": "after seeing a man hanging by a hook on Strength's ship",
+                        "vol": "2",
+                        "ch": "17",
+                        "part": "1"
+                    }, 
+                    {
+                        "quote": "Hmph, are you mad? Did I hurt that pride of yours? No...! That's impossible, because orangutans don't have any pride!",
+                        "description": "to Strength's user",
+                        "vol": "2",
+                        "ch": "19",
+                        "part": "3"
+                    },
+                    {
+                        "quote": "They say that frightened animals show their belly as a sign of surrender.... You've done far more damage than any regular animal would... and yet you're asking me to let you go? Hell no!",
+                        "description": "to Strength's user",
+                        "vol": "2",
+                        "ch": "19",
+                        "part": "3"
+                    }
+                    ]}, 
+                {"Yellow Temperance": [
+                    {
+                        "quote": "The cable car is here. Now get the fuck in there. I got your ticket right here. Take it and get lost, because you are definitely possessed!",
+                        "description": "to Yellow Temperance masquerading as Kakyoin",
+                        "vol": "3",
+                        "ch": "24",
+                        "part": "2" 
+                    },
+                    {
+                        "quote": "Don't mind me... Hey kid, let me borrow that popsicle. ...Be a good kid and just enjoy the view. Sorry. I'll get you a new one when we get off.",
+                        "description": "to the child in the cable car during the pursuit of Yellow Temperance",
+                        "vol": "3",
+                        "ch": "25",
+                        "part": "3" 
+                    },
+                    {
+                        "quote": "So this thing has no weaknesss.... You might be the most powerful enemy I've faced so far. But let me tell you something. The Kujo... no... the Joestar family always had this secret technique. It is my final strategy. That is... to run away!",
+                        "description": "to Yellow Temperance's user",
+                        "vol": "3",
+                        "ch": "25",
+                        "part": "3" 
+                    },
+                    {
+                        "quote": "No matter how powerful the stand is, if I kill its user, the stand dies as well. **Do you understand?**",
+                        "description": "to Yellow Temperance's user",
+                        "vol": "3",
+                        "ch": "25",
+                        "part": "3" 
+                    },
+                    {
+                        "quote": "You sure did talk a lot of smack back there, huh? Luckily, I'm the type of guy that takes that stuff to heart.",
+                        "description": "to Yellow Temperance's user",
+                        "vol": "3",
+                        "ch": "25",
+                        "part": "3" 
+                    },
+                    {
+                        "quote": "You were lucky up to this point. So far, the worst you've suffered was a broken nose.... Haven't you realized it yet? Yare yare... Now, your luck has run out!",
+                        "description": "to Yellow Temperance's user",
+                        "vol": "3",
+                        "ch": "25",
+                        "part": "3" 
+                    },
+                    {
+                        "quote": "I have nothing more to say to you. You are just too pathetic to waste my words on.",
+                        "description": "to Yellow Temperance's user",
+                        "vol": "3",
+                        "ch": "25",
+                        "part": "3" 
+                    }
+                ]}, 
+                {"Wheel of Fortune": [
+                    {
+                        "quote": "Let's beat them all up!",
+                        "description": "about the patrons in the bar, in an attempt to find Wheel of Fortune's user",
+                        "vol": "4",
+                        "ch": "38",
+                        "part": "2" 
+                    },
+                    {
+                        "quote": "Hmm... that was smart, Kakyoin. By the way, are you familiar with sumo? Specifically about the tactics around the edge of the ring.... Exciting, isn't it!",
+                        "description": "to Kakyoin, while fighting Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "39",
+                        "part": "3" 
+                    },
+                    {
+                        "quote": "Didn't you say that there weren't any paths left to take? You were wrong. A path is something you make yourself. That's why I, Jotaro Kujo, will now show you how to build your own path.",
+                        "description": "to Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "40",
+                        "part": "4" 
+                    },
+                    {
+                        "quote": "And that's how it's done. Where you went flying, you've made your own \"path\". That is, the track you made on the ground. Excellent work... truly excellent.",
+                        "description": "to Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "40",
+                        "part": "4" 
+                    }
+                ]}, 
+                {"Justice": [
+                    {
+                        "quote": "And that's how it's done. Where you went flying, you've made your own \"path\". That is, the track you made on the ground. Excellent work... truly excellent.",
+                        "description": "to Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "40",
+                        "part": "4" 
+                    }
+                ]}, 
+                {"Lovers": [
+                    {
+                        "quote": "And that's how it's done. Where you went flying, you've made your own \"path\". That is, the track you made on the ground. Excellent work... truly excellent.",
+                        "description": "to Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "40",
+                        "part": "4" 
+                    }
+                ]}, 
+                {"The Sun": [
+                    {
+                        "quote": "And that's how it's done. Where you went flying, you've made your own \"path\". That is, the track you made on the ground. Excellent work... truly excellent.",
+                        "description": "to Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "40",
+                        "part": "4" 
+                    }
+                ]}, 
+                {"High Priestess": [
+                    {
+                        "quote": "And that's how it's done. Where you went flying, you've made your own \"path\". That is, the track you made on the ground. Excellent work... truly excellent.",
+                        "description": "to Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "40",
+                        "part": "4" 
+                    }
+                ]}, 
+                {"'The Fool' Iggy and 'Geb' N'Doul": [
+                    {
+                        "quote": "And that's how it's done. Where you went flying, you've made your own \"path\". That is, the track you made on the ground. Excellent work... truly excellent.",
+                        "description": "to Wheel of Fortune",
+                        "vol": "4",
+                        "ch": "40",
+                        "part": "4" 
+                    }
+                ]}
+                ]
+        },
+        {
+            "title": "Diamond is Unbreakable",
+            "alt": ["DIU", "Diamond is not Crash"],
+            "number": "4",
+            "arc": []
+        },
+        {
+            "title": "Vento Aureo",
+            "alt": ["VA", "GW", "Golden Wind"],
+            "number": "5",
+            "arc": []
+        },
+        {
+            "title": "Stone Ocean",
+            "alt": ["SO", "Stocean"],
+            "number": "6",
+            "arc": []
+        }
+        ]
+}

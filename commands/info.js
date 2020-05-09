@@ -1,12 +1,28 @@
-exports.run = (client, message, args) => {
+const info = require('../package.json');
+const functions = require('../functions.js');
+const { prefix, default_color } = require('../config.json');
+
+module.exports = {
+    name: 'info',
+    description: 'Provides information about the bot itself.',
+    execute(message) {
+      message.channel.send("Here you go.", {
+        embed: {
+          description: 
+          `**Name:** JotaroBot
+          **Version:** ${info.version}
+          **Description:** ${info.description}
+          **Prefix:** ${prefix}
+          **Author:** ${info.author}
+          **GitHub:** ${info.github}
+
+          If you'd like to donate to the author (and help out with server fees), you can do so here: https://ko-fi.com/curricle`,
+          color: functions.convertColor(default_color)
+        }
+      })
+      .catch(function(error) {
+          console.log(error);
+      });  
+    }
     
-    message.channel.send("Here you go.", {
-      embed: {
-        description: "**Name:** JotaroBot\n**Version:** " + client.info.version + "\n**Description:** " + client.info.description + "\n**Prefix:** " + client.config.prefix + "\n**Author:** " + client.info.author + "\n**GitHub repo:** https://github.com/curricle/jotarobot",
-        color: client.convertColor(client.config.default_color)
-      }
-    })
-    .catch(function(error) {
-        console.log(error);
-    });  
 };
