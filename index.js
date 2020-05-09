@@ -1,6 +1,6 @@
 const { ShardingManager } = require('discord.js');
-const config = require('./config.json');
-const manager = new ShardingManager('./bot.js', { token: config.hp_token });
+const { BOT_LOGIN } = require('./config.json');
+const manager = new ShardingManager('./bot.js', { token: BOT_LOGIN });
 
 manager.spawn();
 manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));

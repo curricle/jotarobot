@@ -3,10 +3,11 @@
 var _require = require('discord.js'),
     ShardingManager = _require.ShardingManager;
 
-var config = require('./config.json');
+var _require2 = require('./config.json'),
+    BOT_LOGIN = _require2.BOT_LOGIN;
 
 var manager = new ShardingManager('./bot.js', {
-  token: config.hp_token
+  token: BOT_LOGIN
 });
 manager.spawn();
 manager.on('shardCreate', function (shard) {
