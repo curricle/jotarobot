@@ -4,6 +4,8 @@ const { UNSPLASH_KEY } = require('../config.json');
 module.exports = {
     name: 'oceanpic',
     description: 'Provides a marine-based photograph from Unsplash.',
+    cooldown: 1,
+    guildOnly: false,
     execute(message) {
         const axios = require('axios');
 
@@ -35,7 +37,6 @@ module.exports = {
                     .catch(function (error) {
                         console.log(error);
                     });
-                console.log("Ocean pic sent.");
     }  
     
 };

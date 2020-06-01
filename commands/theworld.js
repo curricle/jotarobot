@@ -5,6 +5,7 @@ module.exports = {
     name: 'theworld',
     description: 'Stops time.',
     cooldown: 10,
+    guildOnly: false,
     execute(message) {
         /* 
     

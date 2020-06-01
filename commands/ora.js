@@ -3,6 +3,8 @@ const functions = require('../functions.js');
 module.exports = {
     name: "ora",
     description: "Ora.",
+    cooldown: 1,
+    guildOnly: false,
     execute(message) {
         
         var ora = [
@@ -50,8 +52,7 @@ module.exports = {
             "***ORAORAORAORAORAORAORAAAAA***"
         ];
         
-        message.channel.send(ora[functions.getRandom(ora.length)]);
-        console.log("Ora'ed.");  
+        message.channel.send(ora[functions.getRandom(ora.length)]); 
         
     }
                   

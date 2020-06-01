@@ -34,6 +34,8 @@ try {
 
     client.commands.set(command.name, command);
   }
+  /* --------------- process messages --------------- */
+
 } catch (err) {
   _didIteratorError = true;
   _iteratorError = err;
@@ -49,9 +51,6 @@ try {
   }
 }
 
-console.log(client.commands);
-/* --------------- process messages --------------- */
-
 client.on('message', function (message) {
   //make sure message isn't from a bot
   if (message.author.bot) return; //check if it's an approved non-prefixed message
@@ -59,16 +58,19 @@ client.on('message', function (message) {
   responses.sendResponse(message); //trigger by mention
   //make sure message has prefix
 
-  if (message.content.indexOf(prefix) !== 0) return; //get the actual command after the prefix and make it lowercase
+  if (!message.content.startsWith(prefix)) return; //get the actual command after the prefix and make it lowercase
 
-  var args = message.content.slice(prefix.length).split(/ +/g);
+  var args = message.content.slice(prefix.length).split(/ +/);
   var commandName = args.shift().toLowerCase();
-  /* --------------- execute the command --------------- */
-
   var command = client.commands.get(commandName) || client.commands.find(function (cmd) {
     return cmd.aliases && cmd.aliases.includes(commandName);
-  });
+  }); //make sure guild only commands throw error in DMs
+
+  if (command.guildOnly && message.channel.type !== 'text') {
+    return message.reply('Can\'t execute that command inside DMs.');
+  }
   /* --------------- for cooldowns --------------- */
+
 
   if (!cooldowns.has(command.name)) {
     cooldowns.set(command.name, new Discord.Collection());
@@ -92,8 +94,6 @@ client.on('message', function (message) {
     return timestamps["delete"](message.author.id);
   }, cooldownAmount);
   /* --------------- end cooldowns --------------- */
-
-  console.log(command);
 
   try {
     command.execute(message, args);

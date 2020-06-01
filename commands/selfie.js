@@ -9,6 +9,8 @@ const default_color = functions.convertColor(config.default_color);
 module.exports = {
     name: 'selfie',
     description: "Sends an image of Jotaro.",
+    cooldown: 1,
+    guildOnly: false,
     execute(message) {
         var Twitter = require('twitter');
         var twitterClient = new Twitter({
@@ -32,7 +34,6 @@ module.exports = {
                                 var limit = r.response.blog.posts;
                                 var rand = functions.getRandom(r.response.posts.length);
                                 selfie2 = r.response.posts[rand].photos[0].original_size.url;
-                                console.log(`Tumblr selfie: ${selfie2}`); 
                                 message.channel.send("Here you go.", {
                                     embed: {
                                         image: {
@@ -57,8 +58,7 @@ module.exports = {
                                 var r = resp.data;
                                 var limit = r.response.blog.posts;
                                 var rand = functions.getRandom(r.response.posts.length);
-                                selfie = r.response.posts[rand].photos[0].original_size.url;
-                                console.log(`JTB Tumblr selfie:  ${selfie}`); 
+                                selfie = r.response.posts[rand].photos[0].original_size.url; 
                                 message.channel.send("Here you go.", {
                                     embed: {
                                         image: {
@@ -91,8 +91,7 @@ module.exports = {
                             //check to see if the tweet has media
                             if(status.entities.media !== undefined) {
                                 var pic = status.entities.media[0].media_url;
-                                console.log("@daily_jotaro selfie"); 
-                                        
+                                                                        
                                 message.channel.send("Here you go.", {
                                     embed: {
                                         image: {
@@ -154,7 +153,6 @@ module.exports = {
                                     let rand = functions.getRandom(arr);
                                     
                                     let selfie = innerResponse.data.results[rand];
-                                    console.log(`deviantART selfie: ${selfie.content.src}`);
                                     
                                     message.channel.send('Here you go.', {
                                        embed: {

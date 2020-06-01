@@ -10,6 +10,8 @@ var _require = require("../config.json"),
 module.exports = {
   name: "quote",
   description: "Sends a quote from Jotaro.",
+  cooldown: 1,
+  guildOnly: false,
   execute: function execute(message) {
     var getArc = functions.getRandom(quotes.series[0].arc.length);
     var obj = quotes.series[0].arc[getArc];
@@ -21,7 +23,6 @@ module.exports = {
 
     var randTwo = functions.getRandom(obj[arcName].length);
     var quoteObj = obj[arcName][randTwo];
-    console.log(quoteObj.quote);
     message.channel.send("", {
       embed: {
         description: "*\"" + quoteObj.quote + "\"*" + "\n\n - " + quoteObj.description + "\nVolume " + quoteObj.vol + ", Chapter " + quoteObj.ch + ": *" + arcName + "*, part " + quoteObj.part,

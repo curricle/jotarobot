@@ -10,6 +10,13 @@ For any questions or to get in contact, message me at
 LOG
 ---
 
+[v 3.0.1]
+Cooldowns & GuildOnly
+
+- Added cooldowns for commands that didn't have any
+- Added 'guild only' option for commands
+- Removed some unnecessary logging
+
 [v 3.0.0]
 JOTAROBOT 3: THE SHARDENING
 

@@ -1,6 +1,8 @@
 module.exports = {
 	name: 'stats',
 	description: 'Displays various stats about the bot.',
+	cooldown: 0,
+	guildOnly: false,
 	execute(message, args) {
 		const promises = [
 			message.client.shard.fetchClientValues('guilds.cache.size'),

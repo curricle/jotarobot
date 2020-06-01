@@ -3,6 +3,8 @@
 module.exports = {
   name: 'stats',
   description: 'Displays various stats about the bot.',
+  cooldown: 0,
+  guildOnly: false,
   execute: function execute(message, args) {
     var promises = [message.client.shard.fetchClientValues('guilds.cache.size'), message.client.shard.broadcastEval('this.guilds.cache.reduce((prev, guild) => prev + guild.memberCount, 0)')];
     Promise.all(promises).then(function (results) {

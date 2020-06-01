@@ -18,8 +18,6 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-console.log(client.commands);
-
 /* --------------- process messages --------------- */
 
 client.on('message', message => {
@@ -33,17 +31,19 @@ client.on('message', message => {
     //trigger by mention
     
     //make sure message has prefix
-    if(message.content.indexOf(prefix) !== 0) return;
+    if(!message.content.startsWith(prefix)) return;
 
     //get the actual command after the prefix and make it lowercase
-    const args = message.content.slice(prefix.length).split(/ +/g);
+    const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase(); 
-
-    /* --------------- execute the command --------------- */
-
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-     /* --------------- for cooldowns --------------- */
+    //make sure guild only commands throw error in DMs
+    if(command.guildOnly && message.channel.type !== 'text') {
+        return message.reply('Can\'t execute that command inside DMs.');
+    }
+
+    /* --------------- for cooldowns --------------- */
 
      if (!cooldowns.has(command.name)) {
         cooldowns.set(command.name, new Discord.Collection());
@@ -67,7 +67,6 @@ client.on('message', message => {
 
     /* --------------- end cooldowns --------------- */
 
-    console.log(command);
         try {
             command.execute(message, args);
         } catch (error) {

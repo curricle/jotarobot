@@ -6,6 +6,8 @@ var _require = require('../config.json'),
 module.exports = {
   name: 'reload',
   description: 'Reloads commands.',
+  cooldown: 0,
+  guildOnly: false,
   args: true,
   execute: function execute(message, args) {
     if (message.author.id !== owner_ID) return;

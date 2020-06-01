@@ -14,6 +14,8 @@ var default_color = functions.convertColor(config.default_color);
 module.exports = {
   name: 'selfie',
   description: "Sends an image of Jotaro.",
+  cooldown: 1,
+  guildOnly: false,
   execute: function execute(message) {
     var Twitter = require('twitter');
 
@@ -33,7 +35,6 @@ module.exports = {
           var limit = r.response.blog.posts;
           var rand = functions.getRandom(r.response.posts.length);
           selfie2 = r.response.posts[rand].photos[0].original_size.url;
-          console.log("Tumblr selfie: ".concat(selfie2));
           message.channel.send("Here you go.", {
             embed: {
               image: {
@@ -55,7 +56,6 @@ module.exports = {
           var limit = r.response.blog.posts;
           var rand = functions.getRandom(r.response.posts.length);
           selfie = r.response.posts[rand].photos[0].original_size.url;
-          console.log("JTB Tumblr selfie:  ".concat(selfie));
           message.channel.send("Here you go.", {
             embed: {
               image: {
@@ -81,7 +81,6 @@ module.exports = {
 
             if (status.entities.media !== undefined) {
               var pic = status.entities.media[0].media_url;
-              console.log("@daily_jotaro selfie");
               message.channel.send("Here you go.", {
                 embed: {
                   image: {
@@ -132,7 +131,6 @@ module.exports = {
               var arr = innerResponse.data.results.length;
               var rand = functions.getRandom(arr);
               var selfie = innerResponse.data.results[rand];
-              console.log("deviantART selfie: ".concat(selfie.content.src));
               message.channel.send('Here you go.', {
                 embed: {
                   image: {

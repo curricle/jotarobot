@@ -5,6 +5,8 @@ module.exports = {
     
     name: 'help',
     description: 'A list of commands available to use.',
+    cooldown: 1,
+    guildOnly: false,
     aliases: ['commands'],
     execute(message) {
 
@@ -30,10 +32,6 @@ module.exports = {
                 color: functions.convertColor(default_color)
             }
         });
-        
-        console.log("Help requested.");
-        console.log(default_color);
-
-    },
+        },
     
 };

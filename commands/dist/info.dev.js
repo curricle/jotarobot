@@ -11,6 +11,8 @@ var _require = require('../config.json'),
 module.exports = {
   name: 'info',
   description: 'Provides information about the bot itself.',
+  cooldown: 1,
+  guildOnly: false,
   execute: function execute(message) {
     message.channel.send("Here you go.", {
       embed: {

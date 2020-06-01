@@ -6,6 +6,7 @@ module.exports = {
   name: 'theworld',
   description: 'Stops time.',
   cooldown: 10,
+  guildOnly: false,
   execute: function execute(message) {
     /* 
           range 4-6: 60%
